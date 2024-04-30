@@ -1,2 +1,40 @@
 Useful K8s commands
 
+PODS
+source /Users/pm22/.bashrc
+kubectl get all
+kubectl run -i --tty busybox --image=busybox --restart=Never -- sh
+kubectl run nginx --image=nginx
+kubectl describe po busybox
+k delete pod/busybox
+k exec -it sleepy-busybox sh
+
+CONTROLLERS
+Kubectl create -f rc-definition.yaml
+Kubectl get replicationcontroller
+
+REPLICATIONSETS
+Kubectl create -f replicaset-definition.yaml
+Kubectl scale --replicas=6 replicaset-definition.yaml
+Kubectl scale --replicas=6 replicaset myapp-replicaset
+
+
+DEPLOYMENTS
+Kubectl get all
+
+NAMESPACES
+mysql.connect(‘db-service’)
+mysql.connect(‘db-service.dev.svc.cluster.local’)
+Kubectl create namespace dev
+Kubectl get pods --namespace=kube-system
+Kubectl create -f pod-definition.yml --namespace=dev
+Kubectl config set-context $(kubectl config current-context) --namespace=dev
+Kubectl get pods --namespace=dev
+Kubectl get pods --all-namespaces
+Kubectl create -f compute-quota.yaml
+kubectl describe po blue --namespace=marketing
+
+
+ETC.
+echo “jdfvspfkdpsfkops” | base64 -d
+Kubectl replace -f replicaset-definition.yaml
