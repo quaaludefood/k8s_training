@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: app-config
 data:
-  SAPP_COLOR: blue
+  APP_COLOR: blue
   APP_MODE: prod
